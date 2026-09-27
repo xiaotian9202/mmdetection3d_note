@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- 全局暗色渐变背景 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- 各种色系卡片渐变 -->
+    <linearGradient id="worldCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#312e81" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="egoCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c4a6e" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#075985" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="lidarCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="camCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#701a75" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#86198f" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="imgCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#9a3412" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="targetCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-8%" y="-12%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-fuchsia" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#e879f9"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 19px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; fill: #94a3b8; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; font-weight: 700; }
+    .card-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; fill: #cbd5e1; }
+    .matrix-tag { font-family: "Consolas", "Fira Code", monospace; font-size: 12px; font-weight: 600; }
+  </style>
+
+  <!-- 背景底板 -->
+  <rect width="960" height="630" rx="16" fill="url(#bg)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- ==================== 顶部标题 ==================== -->
+  <text x="40" y="40" class="title">自动驾驶多传感器坐标系流转全景架构 (Coordinate Transformations)</text>
+  <text x="40" y="64" class="subtitle">从大地世界绝对坐标，到车体基准纽带，再到传感器间外参对齐与图像像素投影的全链路自适应架构</text>
+
+  <!-- ==================== 1. World / Global 坐标系 ==================== -->
+  <g transform="translate(240, 85)" filter="url(#shadow)">
+    <rect width="480" height="64" rx="12" fill="url(#worldCard)" stroke="#6366f1" stroke-width="1.8"/>
+    <circle cx="34" cy="32" r="16" fill="#4338ca"/>
+    <text x="34" y="38" font-size="16" fill="#e0e7ff" text-anchor="middle">🌐</text>
+    <text x="64" y="28" class="card-title" fill="#e0e7ff">World / Global 坐标系（世界坐标系）</text>
+    <text x="64" y="48" class="card-desc">高精地图 / GPS-RTK 绝对位姿参考 (X东, Y北, Z天)</text>
+  </g>
+
+  <!-- 连接线 1: World <-> Ego (垂直自适应通道，间距 53px，无任何挤压) -->
+  <g transform="translate(480, 149)">
+    <line x1="0" y1="0" x2="0" y2="49" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow-indigo)" stroke-dasharray="6,4"/>
+    <rect x="-95" y="13" width="190" height="24" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="0" y="29" class="matrix-tag" fill="#c7d2fe" text-anchor="middle">T_ego→world (IMU/GPS)</text>
+  </g>
+
+  <!-- ==================== 2. Ego / Vehicle 车体底盘坐标系 ==================== -->
+  <g transform="translate(220, 202)" filter="url(#shadow)">
+    <rect width="520" height="66" rx="12" fill="url(#egoCard)" stroke="#0284c7" stroke-width="1.8"/>
+    <circle cx="34" cy="33" r="16" fill="#0369a1"/>
+    <text x="34" y="39" font-size="16" fill="#e0f2fe" text-anchor="middle">🚗</text>
+    <text x="64" y="28" class="card-title" fill="#e0f2fe">Ego / Vehicle 坐标系（车体底盘坐标系）</text>
+    <text x="64" y="48" class="card-desc">以车辆后轴中心为原点 (X前, Y左, Z上)，多传感器融合的基准物理纽带</text>
+  </g>
+
+  <!-- 分支连接线: Ego -> LiDAR (左下分支，宽敞 68px 垂直缓冲区) -->
+  <path d="M 330 268 L 330 302 L 230 302 L 230 332" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrow-emerald)"/>
+  <rect x="170" y="290" width="120" height="24" rx="5" fill="#064e3b" stroke="#059669" stroke-width="1.2"/>
+  <text x="230" y="306" class="matrix-tag" fill="#a7f3d0" text-anchor="middle">T_lidar→ego</text>
+
+  <!-- 分支连接线: Ego -> Camera (右下分支，宽敞 68px 垂直缓冲区) -->
+  <path d="M 630 268 L 630 302 L 730 302 L 730 332" fill="none" stroke="#e879f9" stroke-width="2.5" marker-end="url(#arrow-fuchsia)"/>
+  <rect x="670" y="290" width="120" height="24" rx="5" fill="#701a75" stroke="#c026d3" stroke-width="1.2"/>
+  <text x="730" y="306" class="matrix-tag" fill="#f5d0fe" text-anchor="middle">T_cam→ego</text>
+
+  <!-- ==================== 3. LiDAR 坐标系 (左侧) ==================== -->
+  <g transform="translate(45, 336)" filter="url(#shadow)">
+    <rect width="370" height="84" rx="12" fill="url(#lidarCard)" stroke="#10b981" stroke-width="1.8"/>
+    <circle cx="32" cy="42" r="16" fill="#047857"/>
+    <text x="32" y="48" font-size="16" fill="#ecfdf5" text-anchor="middle">📡</text>
+    <text x="60" y="32" class="card-title" fill="#ecfdf5">LiDAR 激光雷达坐标系</text>
+    <text x="60" y="52" class="card-desc">3D 激光点云空间 (X前, Y左, Z上)</text>
+    <text x="60" y="70" class="card-desc" fill="#6ee7b7">测距精度达厘米级，直接获取精确空间几何深度</text>
+  </g>
+
+  <!-- 传感器外参直连线: LiDAR -> Camera (宽敞 130px 间隙，左右各留 15px 安全区) -->
+  <g transform="translate(415, 378)">
+    <line x1="5" y1="0" x2="125" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="5,4" marker-end="url(#arrow-amber)"/>
+    <rect x="18" y="-12" width="94" height="24" rx="5" fill="#451a03" stroke="#d97706" stroke-width="1.2"/>
+    <text x="65" y="4" class="matrix-tag" fill="#fde68a" text-anchor="middle">T_lidar→cam</text>
+  </g>
+
+  <!-- ==================== 4. Camera 坐标系 (右侧) ==================== -->
+  <g transform="translate(545, 336)" filter="url(#shadow)">
+    <rect width="370" height="84" rx="12" fill="url(#camCard)" stroke="#d946ef" stroke-width="1.8"/>
+    <circle cx="32" cy="42" r="16" fill="#a21caf"/>
+    <text x="32" y="48" font-size="16" fill="#fdf4ff" text-anchor="middle">📷</text>
+    <text x="60" y="32" class="card-title" fill="#fdf4ff">Camera 相机光学坐标系</text>
+    <text x="60" y="52" class="card-desc">3D 光学视锥空间 (X右, Y下, Z前)</text>
+    <text x="60" y="70" class="card-desc" fill="#f0abfc">光轴朝前，承接小孔成像内参物理透视模型</text>
+  </g>
+
+  <!-- 连接线: Camera -> Image (垂直通道扩展至 70px，上下留出 22px 充裕边距) -->
+  <g transform="translate(730, 420)">
+    <line x1="0" y1="0" x2="0" y2="66" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+    <rect x="-92" y="21" width="184" height="25" rx="5" fill="#431407" stroke="#ea580c" stroke-width="1.2"/>
+    <text x="0" y="37" class="matrix-tag" fill="#ffedd5" text-anchor="middle">内参矩阵 K + 透视除法 Z</text>
+  </g>
+
+  <!-- ==================== 5. 左下角：全链路流转核心目标卡片 (消灭空白，视觉均衡) ==================== -->
+  <g transform="translate(45, 490)" filter="url(#shadow)">
+    <rect width="370" height="74" rx="12" fill="url(#targetCard)" stroke="#0284c7" stroke-width="1.6"/>
+    <circle cx="32" cy="37" r="15" fill="#0369a1"/>
+    <text x="32" y="43" font-size="15" fill="#e0f2fe" text-anchor="middle">🎯</text>
+    <text x="60" y="28" class="card-title" fill="#38bdf8">端到端融合目标 (End-to-End Alignment)</text>
+    <text x="60" y="46" class="card-desc">LiDAR 3D 点 ➔ 外参对齐 ➔ 相机 3D ➔ 内参 ➔ 2D 像素</text>
+    <text x="60" y="62" class="card-desc" fill="#7dd3fc">消除不同空间标尺与安装姿态差异，实现点云像素级精准融合</text>
+  </g>
+
+  <!-- 从 LiDAR 直连流转目标卡片的虚线指示 -->
+  <line x1="230" y1="420" x2="230" y2="486" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-cyan)"/>
+
+  <!-- ==================== 6. 右下角：Image 像素平面 ==================== -->
+  <g transform="translate(545, 490)" filter="url(#shadow)">
+    <rect width="370" height="74" rx="12" fill="url(#imgCard)" stroke="#f97316" stroke-width="1.8"/>
+    <circle cx="32" cy="37" r="15" fill="#c2410c"/>
+    <text x="32" y="43" font-size="15" fill="#fff7ed" text-anchor="middle">🖼️</text>
+    <text x="60" y="28" class="card-title" fill="#fff7ed">Image 图像像素平面</text>
+    <text x="60" y="47" class="card-desc">离散 2D 像素网格 (u 列, v 行)，左上角为原点 (0, 0)</text>
+    <text x="60" y="63" class="card-desc" fill="#fed7aa">承载单目与多目视觉 2D/3D 检测特征图输出</text>
+  </g>
+
+</svg>

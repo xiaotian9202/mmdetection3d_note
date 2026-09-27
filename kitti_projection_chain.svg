@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 920" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- 全局科技暗色背景渐变 -->
+    <linearGradient id="bgChain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- 4 个处理步骤的专用卡片渐变 -->
+    <linearGradient id="step1Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#022c22" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="step2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#701a75" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4a044e" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="step3Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0369a1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#082f49" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="step4Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c2410c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="formulaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0c4a6e" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- 卡片柔和阴影 -->
+    <filter id="shadowChain" x="-5%" y="-15%" width="110%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- 箭头标记 -->
+    <marker id="arr-chain-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arr-chain-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arr-chain-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fb923c"/>
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 19px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; fill: #94a3b8; }
+    .step-badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; font-weight: 700; }
+    .step-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 15px; font-weight: 700; fill: #f8fafc; }
+    .step-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; fill: #cbd5e1; }
+    .math-pill { font-family: "Consolas", "Fira Code", monospace; font-size: 13px; font-weight: 700; }
+    .trans-badge { font-family: "Consolas", "Fira Code", monospace; font-size: 12px; font-weight: 700; }
+    .trans-note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 11px; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; font-weight: 700; }
+    .card-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; fill: #cbd5e1; line-height: 1.6; }
+    .math-font { font-family: "Cambria Math", "Times New Roman", serif; font-style: italic; }
+  </style>
+
+  <!-- 背景底板 -->
+  <rect width="960" height="920" rx="16" fill="url(#bgChain)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- ==================== 顶部标题与副标题 ==================== -->
+  <text x="40" y="40" class="title">KITTI 数据集 LiDAR 到 Cam2 图像投影全链路 (End-to-End Projection Chain)</text>
+  <text x="40" y="64" class="subtitle">四级阶梯自适应流转架构：从激光雷达物理三维点，经外参、立体极线校正，到彩色相机像素平面</text>
+
+  <!-- ==================== 步骤 1：激光雷达点云空间 ==================== -->
+  <g transform="translate(40, 85)" filter="url(#shadowChain)">
+    <rect width="880" height="66" rx="10" fill="url(#step1Grad)" stroke="#10b981" stroke-width="1.8"/>
+    <!-- 步骤序号徽章 -->
+    <rect x="16" y="18" width="62" height="30" rx="6" fill="#047857"/>
+    <text x="47" y="38" class="step-badge" fill="#ecfdf5" text-anchor="middle">步骤 1</text>
+    <!-- 图标与名称 -->
+    <text x="90" y="38" font-size="20">📡</text>
+    <text x="120" y="32" class="step-title">LiDAR 激光雷达点云空间</text>
+    <text x="120" y="51" class="step-desc">车顶 Velodyne 64 线雷达坐标系 (X前, Y左, Z上) | 获取高精度三维几何测距</text>
+    <!-- 右侧数学状态标签 -->
+    <rect x="575" y="16" width="288" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1.2"/>
+    <text x="719" y="38" class="math-pill" fill="#6ee7b7" text-anchor="middle">P_velo = [X_v, Y_v, Z_v, 1]ᵀ</text>
+  </g>
+
+  <!-- 阶段 1 -> 2 过渡连接器 (垂直自适应，绝不重叠) -->
+  <g transform="translate(40, 151)">
+    <line x1="440" y1="0" x2="440" y2="48" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-chain-cyan)"/>
+    <!-- 居中矩阵徽章 -->
+    <rect x="250" y="11" width="380" height="26" rx="6" fill="#0c4a6e" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="340" y="28" class="trans-badge" fill="#38bdf8">T_velo→cam0 [4×4]</text>
+    <text x="440" y="28" class="trans-note" fill="#bae6fd">刚体外参变换（雷达转至物理 Cam0）</text>
+  </g>
+
+  <!-- ==================== 步骤 2：物理 Cam0 空间 (未经摆正) ==================== -->
+  <g transform="translate(40, 201)" filter="url(#shadowChain)">
+    <rect width="880" height="66" rx="10" fill="url(#step2Grad)" stroke="#c026d3" stroke-width="1.8"/>
+    <!-- 步骤序号徽章 -->
+    <rect x="16" y="18" width="62" height="30" rx="6" fill="#86198f"/>
+    <text x="47" y="38" class="step-badge" fill="#fdf4ff" text-anchor="middle">步骤 2</text>
+    <!-- 图标与名称 -->
+    <text x="90" y="38" font-size="20">📷</text>
+    <text x="120" y="32" class="step-title">物理 Cam0 空间 (灰度左目，未校正)</text>
+    <text x="120" y="51" class="step-desc"><tspan fill="#f43f5e" font-weight="bold">⚠️ 现实痛点：</tspan>作为整车基准相机，硬件安装存在零点几度机械俯仰/偏航倾角</text>
+    <!-- 右侧数学状态标签 -->
+    <rect x="545" y="16" width="318" height="34" rx="6" fill="#701a75" stroke="#a21caf" stroke-width="1.2"/>
+    <text x="704" y="38" class="math-pill" fill="#f0abfc" text-anchor="middle">P_cam0 = T_velo→cam0 · P_velo</text>
+  </g>
+
+  <!-- 阶段 2 -> 3 过渡连接器 -->
+  <g transform="translate(40, 267)">
+    <line x1="440" y1="0" x2="440" y2="48" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arr-chain-amber)"/>
+    <!-- 居中矩阵徽章 -->
+    <rect x="235" y="11" width="410" height="26" rx="6" fill="#451a03" stroke="#d97706" stroke-width="1.5"/>
+    <text x="325" y="28" class="trans-badge" fill="#fbbf24">R_rect^(0) [4×4]</text>
+    <text x="430" y="28" class="trans-note" fill="#fde68a">立体极线校正（纯虚拟旋转，双目摆正共面）</text>
+  </g>
+
+  <!-- ==================== 步骤 3：校正后 Cam0 虚拟参考空间 ==================== -->
+  <g transform="translate(40, 317)" filter="url(#shadowChain)">
+    <rect width="880" height="66" rx="10" fill="url(#step3Grad)" stroke="#0284c7" stroke-width="1.8"/>
+    <!-- 步骤序号徽章 -->
+    <rect x="16" y="18" width="62" height="30" rx="6" fill="#0369a1"/>
+    <text x="47" y="38" class="step-badge" fill="#e0f2fe" text-anchor="middle">步骤 3</text>
+    <!-- 图标与名称 -->
+    <text x="90" y="38" font-size="20">📐</text>
+    <text x="120" y="32" class="step-title">校正后 Cam0 空间 (虚拟共面参考系)</text>
+    <text x="120" y="51" class="step-desc"><tspan fill="#38bdf8" font-weight="bold">核心基准：</tspan>双目极线水平对齐，与 KITTI 官方发布的所有校正图片严格共面重合</text>
+    <!-- 右侧数学状态标签 -->
+    <rect x="545" y="16" width="318" height="34" rx="6" fill="#0369a1" stroke="#0284c7" stroke-width="1.2"/>
+    <text x="704" y="38" class="math-pill" fill="#7dd3fc" text-anchor="middle">P_rect0 = R_rect^(0) · P_cam0</text>
+  </g>
+
+  <!-- 阶段 3 -> 4 过渡连接器 -->
+  <g transform="translate(40, 383)">
+    <line x1="440" y1="0" x2="440" y2="48" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arr-chain-orange)"/>
+    <!-- 居中矩阵徽章 -->
+    <rect x="235" y="11" width="410" height="26" rx="6" fill="#431407" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="325" y="28" class="trans-badge" fill="#fb923c">P_rect^(2) [3×4]</text>
+    <text x="430" y="28" class="trans-note" fill="#fed7aa">投影矩阵（Cam2 内参 K₂ + 物理水平基线平移）</text>
+  </g>
+
+  <!-- ==================== 步骤 4：Cam2 图像像素平面 ==================== -->
+  <g transform="translate(40, 433)" filter="url(#shadowChain)">
+    <rect width="880" height="66" rx="10" fill="url(#step4Grad)" stroke="#f97316" stroke-width="1.8"/>
+    <!-- 步骤序号徽章 -->
+    <rect x="16" y="18" width="62" height="30" rx="6" fill="#c2410c"/>
+    <text x="47" y="38" class="step-badge" fill="#fff7ed" text-anchor="middle">步骤 4</text>
+    <!-- 图标与名称 -->
+    <text x="90" y="38" font-size="20">🖼️</text>
+    <text x="120" y="32" class="step-title">Cam2 图像像素平面 (彩色左目，3D检测主图)</text>
+    <text x="120" y="51" class="step-desc">经透视除法得出离散像素坐标 (u = X_pixel/Z_c, v = Y_pixel/Z_c)，完成 3D 到 2D 映射</text>
+    <!-- 右侧数学状态标签 -->
+    <rect x="545" y="16" width="318" height="34" rx="6" fill="#7c2d12" stroke="#c2410c" stroke-width="1.2"/>
+    <text x="704" y="38" class="math-pill" fill="#fed7aa" text-anchor="middle">Z_c · [u, v, 1]ᵀ = P_rect^(2) · P_rect0</text>
+  </g>
+
+  <!-- ==================== 第二层：全链路矩阵级联乘积公式栏 ==================== -->
+  <g transform="translate(40, 519)" filter="url(#shadowChain)">
+    <rect width="880" height="80" rx="10" fill="url(#formulaGrad)" stroke="#0284c7" stroke-width="1.6"/>
+    <!-- 标题 -->
+    <text x="24" y="28" class="card-title" fill="#38bdf8">全链路端到端矩阵级联乘积公式 (End-to-End Cascade Formula)：</text>
+    
+    <!-- 核心公式 -->
+    <text x="24" y="58" class="math-font" fill="#f8fafc" font-size="16" font-weight="bold">
+      Z_c · [u,  v,  1]ᵀ  =  P_rect^(2) · R_rect^(0) · T_velo→cam0 · P_velo
+    </text>
+
+    <!-- 右侧 P_rect 构成标注框 -->
+    <rect x="590" y="14" width="270" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="602" y="33" class="card-desc" fill="#fb923c" font-weight="bold" font-size="11">P_rect^(2) 的内部结构 (3×4)：</text>
+    <text x="602" y="52" class="math-font" fill="#fed7aa" font-size="12">K₂ · [ I  |  t_cam0→cam2 ]，含基线偏移 -f_x·b_x</text>
+  </g>
+
+  <!-- ==================== 第三层：深度原理解密卡片 (每行换行，严格防重叠) ==================== -->
+  <g transform="translate(40, 619)" filter="url(#shadowChain)">
+    <rect width="880" height="275" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="880" height="36" rx="12" fill="#0f172a"/>
+    <text x="20" y="24" class="card-title" fill="#fbbf24">💡 深度原理解密：为什么点云投到彩色 Cam2 必须先绕道 Cam0 并补乘 R_rect^(0)？</text>
+
+    <!-- 知识点 1 -->
+    <g transform="translate(20, 50)">
+      <circle cx="6" cy="7" r="4.5" fill="#f43f5e"/>
+      <text x="20" y="11" class="card-title" fill="#f8fafc" font-size="13">1. 工业级唯一锚点制：官方只标定 T_velo→cam0，杜绝多传感器两两直连的外参撕裂</text>
+      <text x="20" y="30" class="card-desc">Cam0 (灰度左目) 是整车主控基准，官方标定包未提供雷达到 Cam2 的直连外参文件；</text>
+      <text x="20" y="47" class="card-desc">若每个相机各自测定外参，测量噪声会导致闭环断裂（T_velo→cam2 ≠ T_cam0→cam2 · T_velo→cam0），导致跨相机融合时物体几何错位。</text>
+    </g>
+
+    <!-- 知识点 2 -->
+    <g transform="translate(20, 118)">
+      <circle cx="6" cy="7" r="4.5" fill="#38bdf8"/>
+      <text x="20" y="11" class="card-title" fill="#f8fafc" font-size="13">2. 大一统虚拟共面空间：R_rect^(0) 摆正后，Cam0 与 Cam2 旋转姿态已 100% 绝对平行</text>
+      <text x="20" y="30" class="card-desc">KITTI 4 台相机全部虚拟旋转对齐到同一基准面上，在此空间中 4 台相机的虚拟光轴完全平行、旋转差归零；</text>
+      <text x="20" y="47" class="card-desc">摆正后的 Cam0 与 Cam2 之间没有任何倾角差异，唯一的空间差别仅仅是横梁 X 轴上 6 厘米的水平物理平移（-0.06m）。</text>
+    </g>
+
+    <!-- 知识点 3 -->
+    <g transform="translate(20, 186)">
+      <circle cx="6" cy="7" r="4.5" fill="#fbbf24"/>
+      <text x="20" y="11" class="card-title" fill="#f8fafc" font-size="13">3. 一次变换全车四目共享，与 KITTI 官方 3D 目标检测真值标注（Ground Truth）严格对齐</text>
+      <text x="20" y="30" class="card-desc">每帧十万个点云全车只需经 R_rect^(0) · T_velo→cam0 变换一次，得到统一 3D 点 P_rect0，Cam0/1/2/3 乘各自 P_rect 矩阵直接出图；</text>
+      <text x="20" y="47" class="card-desc"><tspan fill="#38bdf8" font-weight="bold">【终极铁证】</tspan>KITTI 官方标注的 3D 边界框 (x, y, z, h, w, l, ry)，其基准参考系正是校正后的 Cam0 空间，必须由此进行 Loss 与评估！</text>
+    </g>
+  </g>
+
+</svg>

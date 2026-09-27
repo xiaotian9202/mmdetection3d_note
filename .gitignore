@@ -1,0 +1,12 @@
+# Antigravity IDE metadata
+*.metadata.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
